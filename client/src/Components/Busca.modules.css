@@ -1,0 +1,94 @@
+body {
+    background-color: #272727;
+}
+
+/*Feed Principal*/
+.feedPrincipal {
+    justify-content: space-between;
+    display: flex;
+    width: 90%;
+}
+
+.postsFeed {
+    border-radius: 5px;
+    margin-left: 5%;
+    padding: 5%;
+    width: 90%;
+    margin-right: 5%;
+    background-color: white;
+}
+
+/*Campo lateral*/
+.lateral h1 {
+    color:white;
+    font-size:16px;
+    border-bottom:1px solid white;
+    margin-bottom:15px;
+}
+
+.lateral {
+    list-style:none;
+    color:white;
+    width:15%;
+}
+
+.btnSeguir {
+    color:#3600B3;
+    cursor:pointer;    
+}
+
+.btnSeguir p{
+    padding:5px;
+    background-color:#3600B3;
+    color:white;
+    border-radius:2px;
+}
+
+.btnSeguir p:hover{
+    font-weight:bold;
+}
+
+.linha {
+    display:flex;
+    justify-content:space-between;
+}
+
+/*Descubra*/
+.descubra {
+    font-size:12px;
+    margin-bottom:50px;
+}
+
+.btnExplorar {
+    color:#3600B3;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* Radar */
+.radar {
+    background-color:white;
+    border-radius:5px;
+    padding:5%;
+    color: #272727;
+    font-size:12px;
+    margin-bottom:20px;
+}
+
+.userRadar {
+    display:flex;
+    justify-content:space-between;
+}
+
+.acoesRadar {
+    display:flex;
+    justify-content:flex-start;
+    margin-top:10px;
+}
+
+.btnCurtir {
+    margin-right:5%;
+    cursor: pointer;
+}
+
+

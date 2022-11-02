@@ -1,0 +1,98 @@
+/*Novo Post*/
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+    background-color: #E0E0E0;
+    margin-right: 25px;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+textarea {
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #616161;
+    border: 1px solid #F5F5F5;
+    font-size: 16px;
+    letter-spacing: 1px;
+    height: 120px !important;
+    width: 100%;
+    resize: none;
+}
+
+.nvPost {
+    display: flex;
+}
+
+/*Botões*/
+.botoes {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.botoes input[type="file"] {
+    display: none;
+}
+
+.btnInserir {
+    background-color: #019592;
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 75px;
+    margin-right: 50px;
+    color: white;
+    width: 150px;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0;
+    height: 30px;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.btnInserir p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btnInserir:hover {
+    font-weight: bold;
+}
+
+.btnPubli p {
+    font-size: 12px;
+}
+
+.btnPubli:hover {
+    font-weight: bold;
+}
+
+.btnPubli {
+    background-color: #3700B3;
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: white;
+    width: 150px;
+    font-size: 12px;
+    cursor: pointer;
+    padding-top: 5px;
+    height: 30px;
+    border: none;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.botaoPerfil{
+    border: 0;
+    color: white;
+}

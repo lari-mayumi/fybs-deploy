@@ -1,0 +1,32 @@
+
+/* NAO MEXER NAVBAR DE TESTE*/
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(39, 39, 39);
+  padding: 1em;
+  margin: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.list{
+  display: flex;
+  list-style: none;
+  align-items: center;
+  font-size: 10;
+}
+
+.item {
+  margin-right: 1em;
+}
+
+.item a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.item a:hover {
+  color: #9068ff;
+}

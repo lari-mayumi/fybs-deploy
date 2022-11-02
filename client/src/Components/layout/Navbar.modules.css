@@ -1,0 +1,122 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(39, 39, 39);
+  padding: 1em;
+  margin: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.list{
+  display: flex;
+  list-style: none;
+  align-items: center;
+  font-size: 10;
+}
+
+.item {
+  margin-right: 1em;
+}
+
+.item a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.item a:hover {
+  color: #9068ff;
+}
+
+
+/*Geral*/
+.headerMenu {
+  margin:0px;
+  padding:0px;
+  background-color:#272727;
+  display:flex;
+  justify-content:flex-start;
+}
+
+/*Logo Fybs*/
+.logoMenu {
+  margin-left:50px;
+}
+
+/*Foto do Perfil*/
+.perfilMenu {
+  margin-top:2px;
+  margin-left:35px;
+  margin-right:100px;
+  width:30px;
+  height:30px;
+  cursor: pointer;
+}
+
+/* Menu */
+
+
+/*Campo de busca*/
+.searchMenu {
+  display:flex;
+  justify-content:flex-start;
+}
+
+.txtBusca { 
+  border: none;
+  font-size:12px;
+  background-color:#5a5a5a;
+  color:white;
+  width:700px;
+  height:30px;
+  margin-left:10px;
+  margin-top:5px;
+  padding:5px 10px 5px 10px;
+  border-radius:20px;
+  display:flex;
+  justify-content:flex-start;
+}
+
+.txtBusca:focus {
+  border:none;
+}
+
+.btnBusca {
+  width:20px;
+  height:20px;
+  margin-top:10px;
+  margin-left:15px;
+}
+
+.btnBusca:hover {
+  cursor: pointer;
+}
+
+/*Botão de Sair*/
+.btnSair {
+  width:20px;
+  height:20px;
+  margin-top:10px;
+  margin-left:15px;
+}
+
+.btnSair:hover {
+  cursor: pointer;
+}
+
+.button {
+  background-color:#272727;
+  border: 0;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: #E0E0E0;
+  margin-right: 25px;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}

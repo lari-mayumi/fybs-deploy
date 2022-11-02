@@ -1,0 +1,45 @@
+/*Cabeçalho do grupo*/
+.btnEntrar {
+    width: 100%;
+    background-color: #3700B3;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    -webkit-box-shadow: 1px 1px 5px 0px black;
+    -moz-box-shadow: 1px 1px 5px 0px black;
+    box-shadow: 1px 1px 5px 0px black;
+}
+
+.btnEntrar:hover {
+    color:white;
+    font-weight: bold;
+}
+
+.numGrupo {
+    color: #272727;
+}
+
+/*tudo*/
+
+.feedGrupos {
+    margin: 0;
+    padding: 0;
+    background-color: #272727;
+}
+
+.profile-head {
+    transform: translateY(5rem)
+}
+
+.cover {
+    /*background-image: url(https://pm1.narvii.com/7453/1050160466f836c12497f97851395415b639c51cr1-1920-780v2_hq.jpg);*/
+    background-size: cover;
+    background-repeat: no-repeat
+}

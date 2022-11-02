@@ -1,0 +1,12 @@
+.linha {
+    display:flex;
+    justify-content:space-between;
+    background-color:#272727;
+    border: 0;
+}
+
+.lateral {
+    list-style:none;
+    color:white;
+    width:15%;
+}

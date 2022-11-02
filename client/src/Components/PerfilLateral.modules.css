@@ -1,0 +1,92 @@
+/* Perfil lateral*/
+.perfilBloco {
+    position:fixed;
+    width:25%;
+    height:100%;
+    margin:0;
+    display:flex;
+    background-color:white;
+}
+
+.cabPerfil {
+    position:fixed;
+    color:white;
+    height:30%;
+    width:25%;
+    background-color: #272727;
+}
+
+.rightSide {
+    position: absolute;
+    margin-left:40%;
+    width:60%;
+    height:100%;
+    padding:10px;
+    text-align:center;
+}
+
+.leftSide {
+    position: absolute;
+    width:40%;
+    height:100%;
+    margin:0;
+    padding:10px;
+}
+
+.userTitulo {
+    display:flex;
+    justify-content:space-around;
+}
+
+.iconeSeta {
+    margin-top:5px;
+    width:15px;
+    height:15px;
+    cursor: pointer;
+}
+
+.numFollows {
+    color:white;
+    font-size:9px;
+    text-align:center;
+    width:100%;
+}
+
+.numFollows p {
+    padding:0;
+    margin:0;
+}
+
+.btnEditar {
+    width: 100%;
+    background-color: #3700B3;
+    text-align: center;
+    border-radius: 5px;
+    margin-top:20%;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    -webkit-box-shadow: 1px 1px 5px 0px black;
+    -moz-box-shadow: 1px 1px 5px 0px black;
+    box-shadow: 1px 1px 5px 0px black;
+    display:flex;
+    justify-content:center;
+}
+
+.btnEditar:hover {
+    color:white;
+    font-weight: bold;
+}
+
+.ftPerfil {
+    margin-top:25%;
+    border-radius:50%;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
