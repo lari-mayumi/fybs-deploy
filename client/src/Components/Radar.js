@@ -16,10 +16,12 @@ function Radar( { user, id, idPoster, likes, text, image} ){
     let heart = iconeCurtido;
     let seguindo = 0;
     let botao = "Seguir";
+    let w = "100%";
     
     //console.log(idPoster)
     if (image === null){
         image = pixel;
+        w = "0%";
     }
 
     const getLikes = () => {
@@ -115,7 +117,7 @@ function Radar( { user, id, idPoster, likes, text, image} ){
             <div className="postRadar">
               <div className="jogo">
                 <p>{text}</p>
-                <img src={image} alt="..." width="100%" />
+                <img src={image} alt="..." width={w} />
               </div>
             </div>
             {/** likes do post*/}

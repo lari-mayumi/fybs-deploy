@@ -1,34 +1,26 @@
-.footer {
-    background-color: #222;
-    color: #fff;
-    padding: 3em;
-    text-align: center;
+footer {
+    background-color:#222222;
+    margin-top:5%;
+    padding:2% 0 2% 0;
 }
 
-.social_list {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
+button {
+    border:none;
+    background-color:transparent;
+    color:rgba(255, 255, 255, 0.205);
 }
 
-.social_list li {
-    margin: 0 1em;
+.boxFooter, .boxCopy {
+    display:flex;
+    text-align:center;
+    justify-content:center;
 }
 
-.social_list li:hover {
-    color: #9068ff;
+button:hover {
+    color:#3700B3;
 }
 
-.social_list svg {
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-.copy_right {
-    margin-top: 2em;
-}
-
-.copy_right span {
-    font-weight: bold;
-    color: #9068ff;
+.boxCopy {
+    font-size:12px;
+    margin-top:2%;
 }

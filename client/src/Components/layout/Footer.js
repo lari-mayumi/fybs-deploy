@@ -1,23 +1,17 @@
 import "./Footer.modules.css"
-import {FaFacebook, FaInstagram, FaLinkedin} from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa'
 
 function Footer() {
     return (
-        <footer className="footer">
-            <ul className="social_list">
-                <li>
-                    <FaFacebook />
-                </li>
-                <li>
-                    <FaInstagram />
-                </li>
-                <li>
-                    <FaLinkedin />
-                </li>
-            </ul>
-            <p className="copy_right">
-                <span>Fybs</span> &copy;
-            </p>
+        <footer className="footerF">
+            <div className="boxFooter">
+                <button className="btnSobre">Sobre</button>
+                <button className="btnTermos">Termos de Condições Gerais</button>
+                <button className="btnPriva">Termos de Privacidade</button>
+            </div>
+            <div className="boxCopy">
+                <button className="btnCopy">Copyright © Fybs 2022</button>
+            </div>
         </footer>
     )
 }

@@ -1,4 +1,53 @@
-/*Cabeçalho do grupo*/
+/*Foto do grupo*/
+.ftCapa {
+    padding-left:0 !important;
+    text-align:center;
+}
+
+.capa {
+    text-align:center;
+    background-color:#272727;
+}
+
+/*Icone do grupo e nome*/
+.ftGrupo {
+    width:33%;
+    text-align:center;
+}
+.ftGrupo img {
+    width:70%;
+    padding:2%;
+}
+
+.boxInfoGrupo {
+    display:flex;
+    justify-content:flex-start;
+}
+
+.boxNomeBotao {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    margin-left:15%;
+}
+
+.nomeGrupo {
+    margin-bottom:10px;
+}
+
+/* follows */
+.boxFollows {
+    text-align:center;
+    margin-top:5%;
+    margin-bottom:10%;
+}
+
+/* botão */
+.botaoEntrar {
+    width:100%;
+}
+
 .btnEntrar {
     width: 100%;
     background-color: #3700B3;
@@ -10,7 +59,7 @@
     font-size: 14px;
     cursor: pointer;
     border: none;
-    padding: 5px;
+    padding: 5px 50px 5px 50px;
     text-decoration: none;
     -webkit-box-shadow: 1px 1px 5px 0px black;
     -moz-box-shadow: 1px 1px 5px 0px black;
@@ -26,6 +75,25 @@
     color: #272727;
 }
 
+/*Descrição*/
+.botoesEdit img{
+    width:100%;
+}
+
+.botoesEdit {
+    width:100%;    
+    display:flex;
+    flex-direction:row;
+    justify-content:right;
+}
+
+.botoesEdit button {
+    
+    width:30px;
+    border:none;
+    background:none;
+}
+
 /*tudo*/
 
 .feedGrupos {
@@ -38,8 +106,8 @@
     transform: translateY(5rem)
 }
 
-.cover {
-    /*background-image: url(https://pm1.narvii.com/7453/1050160466f836c12497f97851395415b639c51cr1-1920-780v2_hq.jpg);*/
+/* .cover {
+    background-image: url(https://pm1.narvii.com/7453/1050160466f836c12497f97851395415b639c51cr1-1920-780v2_hq.jpg);
     background-size: cover;
-    background-repeat: no-repeat
-}
+    background-repeat: no-repeat 
+} */

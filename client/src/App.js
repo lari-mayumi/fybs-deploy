@@ -14,6 +14,8 @@ import PerfilAlterar from './Components/PerfilAlterar';
 import Rotas from './Components/Rotas'
 
 function App() {
+  localStorage.setItem("erro", 0);
+  
   return (
     <Router>
       <Container className="Container">

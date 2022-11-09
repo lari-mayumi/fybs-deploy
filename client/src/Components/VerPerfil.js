@@ -31,7 +31,7 @@ function VerPerfil(){
     const [perfil, setPerfil] = useState([]);
     const [followers, setFollowers] = useState([]);
 
-    console.log(user)
+    //console.log(user)
     const getProfile = () => {
         Axios.get("http://localhost:3001/users").then((response) => { //pega os dados do backend
           setPerfil(response.data);

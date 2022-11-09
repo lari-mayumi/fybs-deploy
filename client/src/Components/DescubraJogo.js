@@ -10,7 +10,7 @@ function DescubraJogo({ nome, idGrupo, id }){
     let seguindo = 0;
     let botao = "Seguir";
 
-    const getData = () =>{
+    /*const getData = () =>{
         Axios.get("http://localhost:3001/followers").then((response) => { 
             setFollowers(response.data);
         });
@@ -23,13 +23,13 @@ function DescubraJogo({ nome, idGrupo, id }){
             } 
             i = i + 1;
         } 
-    }
+    }*/
     
     const verJogo = () => {
         navigate("/grupos/" + idGrupo);
     }
     //console.log(seguindo)
-    const seguirJogo = () => {
+    /*const seguirJogo = () => {
         //console.log("seguindo...")
         console.log(seguindo, 0)
         if (seguindo === 0) {
@@ -44,9 +44,9 @@ function DescubraJogo({ nome, idGrupo, id }){
         }
         //botao = "Seguindo";
         //  seguindo = 1;
-    }
+    }*/
 
-    getData();
+    //getData();
 
     return (
         <>
@@ -54,7 +54,7 @@ function DescubraJogo({ nome, idGrupo, id }){
               <div className="jogo">
                 <button className="linha" onClick={verJogo}><p className="lateral">{nome}</p></button>
               </div>
-              <div className="btnSeguir"><button className="linha" onClick={seguirJogo}><p>{botao}</p></button></div>
+              <div className="btnSeguir"><button className="linha" onClick={verJogo}><p>Ver Grupo</p></button></div>
             </div>
         </>
     )

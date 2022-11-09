@@ -2,12 +2,12 @@ import { useState } from "react";
 import "./Perfil.modules.css";
 import Axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
-import Globais from "./Globais";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import Post from "./Post";
 import profileimage from '../img/user.png'
 import VerSeguidores from "./VerSeguidores";
+import PerfilL from "./perfilLateral";
 
 function Perfil({user}){
 
@@ -36,6 +36,7 @@ function Perfil({user}){
     
     const [perfil, setPerfil] = useState([]);
     const [followers, setFollowers] = useState([]);
+    let p = parseInt(localStorage.getItem("perfil"));
 
     const getProfile = () => {
         Axios.get("http://localhost:3001/users").then((response) => { //pega os dados do backend
@@ -116,6 +117,7 @@ function Perfil({user}){
     return (
         <><div className="feedGrupos">
         <Navbar />
+        {p === 1 && ( <PerfilL /> )}
           <div className="perfilGrupo">
             <div className="col-md-8 mx-auto"> {/* Largura da caixa do perfil do grupo*/}              
               <div className="bg-white shadow rounded overflow-hidden">
@@ -164,7 +166,7 @@ function Perfil({user}){
                   <div className="posts">
                   {posts.map((val, key) => {
                     return (
-                    <Post user={val.userName} texto={val.text} />
+                      <Post user={val.userName} origem={val.originalPoster} origemID={val.originalPosterID} texto={val.text} imagem={val.image} id={val.id} userid={val.userNameID} grupoID={val.grupoID} />
                     );
                   })}
                   </div>
@@ -178,4 +180,3 @@ function Perfil({user}){
 
 export default Perfil;
 
-////<button ><Link to="/alterarperfil" ></Link>Alterar dados</button>

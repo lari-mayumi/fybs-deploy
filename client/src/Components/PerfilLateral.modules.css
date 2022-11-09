@@ -1,60 +1,67 @@
-/* Perfil lateral*/
-.perfilBloco {
-    position:fixed;
-    width:25%;
-    height:100%;
-    margin:0;
-    display:flex;
-    background-color:white;
+.blocoPerfilLateral {
+    display: flex;
 }
 
+/* Perfil lateral*/
+.perfilBloco {
+    width: 27%;
+    height: 100%;
+    margin: 0;
+    background-color: white;
+    position: fixed !important;
+    top: 68px;
+    display: inline;
+}
+
+/*cabeçalho - parte com fundo cinza*/
 .cabPerfil {
-    position:fixed;
-    color:white;
-    height:30%;
-    width:25%;
+    color: white;
+    height: 25%;
+    width: 100%;
     background-color: #272727;
+    display: flex;
 }
 
 .rightSide {
-    position: absolute;
-    margin-left:40%;
-    width:60%;
-    height:100%;
-    padding:10px;
-    text-align:center;
+    width: 60%;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-top: 0;
+    padding-right: 10px;
 }
 
 .leftSide {
-    position: absolute;
-    width:40%;
-    height:100%;
-    margin:0;
-    padding:10px;
+    /* position: absolute; */
+    width: 40%;
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    /* display:; */
 }
 
 .userTitulo {
-    display:flex;
-    justify-content:space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 .iconeSeta {
-    margin-top:5px;
-    width:15px;
-    height:15px;
+    margin-top: 5px;
+    width: 15px;
+    height: 15px;
     cursor: pointer;
 }
 
 .numFollows {
-    color:white;
-    font-size:9px;
-    text-align:center;
-    width:100%;
+    color: white;
+    font-size: 9px;
+    text-align: center;
+    width: 100%;
 }
 
 .numFollows p {
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
 }
 
 .btnEditar {
@@ -62,7 +69,7 @@
     background-color: #3700B3;
     text-align: center;
     border-radius: 5px;
-    margin-top:20%;
+    margin-top: 20%;
     margin-bottom: 30px;
     color: white;
     font-size: 12px;
@@ -73,20 +80,72 @@
     -webkit-box-shadow: 1px 1px 5px 0px black;
     -moz-box-shadow: 1px 1px 5px 0px black;
     box-shadow: 1px 1px 5px 0px black;
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
 }
 
 .btnEditar:hover {
-    color:white;
+    color: white;
     font-weight: bold;
 }
 
 .ftPerfil {
-    margin-top:25%;
-    border-radius:50%;
+    margin-top: 25%;
+    border-radius: 50%;
     display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+/* Corpo perfil */
+.corpoPerfil {
+    /* display:inline; */
+    /* background-color:orange; */
+    height: 100%;
+}
+
+/* Grupos */
+.grupos-meus {
+    /* background-color: red; */
+    width: 100%;
+}
+
+/*set final*/
+.morePublis {
+    position: relative;
+    display: initial;
+    margin: 10%;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    color: #272727;
+    background: rgb(209, 209, 209);
+    background: linear-gradient(0deg, rgba(209, 209, 209, 1) 0%, rgba(255, 255, 255, 0.6797093837535014) 50%, rgba(0, 212, 255, 0) 100%);
+}
+
+/* Caixa Mostrar Perfil Completo */
+.perfilMais {
+    position: fixed;
+    background: rgb(55, 55, 55);
+    background: linear-gradient(0deg, rgba(55, 55, 55, 1) 0%, rgba(74, 74, 74, 1) 16%, rgba(191, 191, 191, 0) 100%);
+    width: 27%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.txtPerfilMais p {
+    font-weight: bold;
+    color:rgb(140, 140, 140);
+}
+
+.txtPerfilMais p:hover {
+    font-weight:bold;
+    color:white;
+    font-size:18px;
 }

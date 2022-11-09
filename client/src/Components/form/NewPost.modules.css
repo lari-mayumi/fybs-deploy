@@ -5,10 +5,17 @@
     border-radius: 50%;
     object-fit: contain;
     background-color: #E0E0E0;
-    margin-right: 25px;
     -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
     box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.boxUser button {
+    background-color:white;
+}
+
+.boxUser {
+    margin-right:5px;
 }
 
 textarea {
@@ -16,16 +23,21 @@ textarea {
     border-radius: 10px;
     box-sizing: border-box;
     color: #616161;
-    border: 1px solid #F5F5F5;
+    -webkit-box-shadow: 3px 3px 10px 0px rgba(50, 50, 50, 0.1);
+    -moz-box-shadow: 3px 3px 10px 0px rgba(50, 50, 50, 0.1);
+    box-shadow: 3px 3px 10px 0px rgba(50, 50, 50, 0.1);
+    border:1px solid rgba(128, 128, 128, 0.204);    
     font-size: 16px;
     letter-spacing: 1px;
     height: 120px !important;
     width: 100%;
     resize: none;
+    margin-bottom:2%;
 }
 
 .nvPost {
     display: flex;
+    justify-content:center;
 }
 
 /*Botões*/
@@ -40,7 +52,7 @@ textarea {
 
 .btnInserir {
     background-color: #019592;
-    position: relative;
+    /* position: relative; */
     text-align: center;
     border-radius: 5px;
     margin-top: 10px;
@@ -70,13 +82,13 @@ textarea {
     font-size: 12px;
 }
 
-.btnPubli:hover {
+.btnPubli button:hover {
     font-weight: bold;
 }
 
-.btnPubli {
+.btnPubli button{
     background-color: #3700B3;
-    position: relative;
+    /* position: relative; */
     text-align: center;
     border-radius: 5px;
     margin-top: 10px;

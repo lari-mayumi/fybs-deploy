@@ -1,0 +1,22 @@
+/*Legenda - titulo */
+.tituloPubli {
+    font-weight:bold;
+ }
+ 
+ /*Foto publicação*/
+ .fotoPubli {
+    width:100%;
+ }
+ 
+ .boxPubli {
+     color: #272727;
+     margin:5%;
+     border-radius: 10px;
+     -webkit-box-shadow: 3px 3px 10px 0px rgba(50, 50, 50, 0.1);
+     -moz-box-shadow: 3px 3px 10px 0px rgba(50, 50, 50, 0.1);
+     box-shadow: 3px 3px 10px 0px rgba(50, 50, 50, 0.1);
+     padding:2%;
+     font-size:12px;
+     border:1px solid rgba(128, 128, 128, 0.204);
+     margin-bottom:10px;
+ }

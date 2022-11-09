@@ -18,16 +18,20 @@ function Feed() {
   const [postList, setPostList] = useState([]);
   const [followers, setFollowers] = useState([]);
   const [groupList, setGroupList] = useState([]);
+  const [blocoPerfil, setBlocoPerfil] = useState(["blocoPerfilLateralOcultar"]);
   let id = parseInt(localStorage.getItem("id"));
   let posts = [];
   let postsRadar = [];
   let jogos = [];
   let follows = [];
   let trocaIcone = 0;
+  let mostrarPerfil = 0;
+  let p = parseInt(localStorage.getItem("perfil"));
 
   const getPosts = () => {
     Axios.get("http://localhost:3001/posts").then((response) => { //seleciona todos os dados de post
       setPostList(response.data);
+      // console.log(postList)
     });
 
     Axios.get("http://localhost:3001/followers").then((response) => { //pega as informações de seguidores
@@ -41,14 +45,20 @@ function Feed() {
       }
       i = i + 1;
     }
+    //console.log(postList)
+
+    postList.sort((a, b) => {
+      return b.id - a.id;
+    });
 
     i = 0;
     while (i < postList.length) {
-      if ((follows[0].includes(postList[i].userNameID, 0) || follows[0].includes(postList[i].originalPosterID, 0) || postList[i].userNameID === id || postList[i].originalPosterID === id) && follows[1] == postList[i].grupo) {
+      if ((follows[0].includes(postList[i].userNameID, 0) || follows[0].includes(postList[i].originalPosterID, 0) || postList[i].userNameID === id || postList[i].originalPosterID === id) && follows[1] === postList[i].grupo) {
         posts.push(postList[i]);
       }
       i = i + 1;
     }
+    //console.log(posts)
 
     postList.sort((a, b) => {
       return b.likes - a.likes;
@@ -76,7 +86,7 @@ function Feed() {
   }
 
   function trocar() {
-    if (trocaIcone == 0) { //reseta quando o contatador for igual ao tamanho da array e volta a 1° img
+    if (trocaIcone === 0) { //reseta quando o contatador for igual ao tamanho da array e volta a 1° img
       trocaIcone = 1;
     }
     document.getElementById("imgCurtir").src = { iconeCurtido }; //altera a img do elemento "bomdia" de acordo com o indice
@@ -88,14 +98,18 @@ function Feed() {
   return (
     <>
       <Navbar />
-      <PerfilL />
+      {/* Perfil abaixo comentado porem é necessario programar para show/hide !!!!!!!!!!!!!! */}
+      {p === 1 && ( <PerfilL /> )}
       {/** Feed */}
       <div className="feedPrincipal">
         <div className="postsFeed">
           <NewPost />
+          <div className="divisao" />
+          {/* Posts dos meus seguidores */}
           {posts.map((val, key) => {
+            //console.log('id: ', val.originalPosterID)
             return (
-              <Post user={val.userName} texto={val.text} id={val.id} />
+              <Post user={val.userName} origem={val.originalPoster} origemID={val.originalPosterID} texto={val.text} imagem={val.image} id={val.id} userid={val.userNameID} grupoID={val.grupoID} />
             );
           })}
         </div>
@@ -104,12 +118,14 @@ function Feed() {
           {/** Caixa Descubra*/}
           <div className="descubra">
             <h1>Descubra</h1>
-            {jogos.map((val, key) => {
-              return (
-                < DescubraJogo nome={val.nomeGrupo} idGrupo={val.idGrupo} id={id} />
-              );
-            })}
-            <div className="linha">
+            <div className="linhaJogos">
+              {jogos.map((val, key) => {
+                return (
+                  < DescubraJogo nome={val.nomeGrupo} idGrupo={val.idGrupo} id={id} />
+                );
+              })}
+            </div>
+            <div className="linhaExplorar">
               <div className="btnExplorar"><p>Explorar mais na fybs...</p></div>
             </div>
           </div>
@@ -128,6 +144,7 @@ function Feed() {
       <Footer />
 
     </>
+
   )
 }
 

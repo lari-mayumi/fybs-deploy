@@ -11,6 +11,7 @@ import VerPerfil from './VerPerfil';
 import Globais from './Globais';
 import Grupos from './Grupos';
 import Busca from './Busca';
+import ResetPassword from './form/ResetPassword';
 
 function Rotas(){/*
     const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -41,6 +42,7 @@ function Rotas(){/*
         <Route exact path="/alterarperfil" element={< PerfilAlterar />} />
         <Route exact path="/grupos/:group" element={< Grupos />} />
         <Route exact path="/search/:key" element={< Busca />} />
+        <Route exact path="/resetSenha" element={< ResetPassword />} />
        
         </Routes>
       </ div >

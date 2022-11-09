@@ -2,9 +2,42 @@ const express = require("express");
 const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
+const uploadUser = require('./middlewares/uploadImage');
+const multer = require("multer");
+const upload = multer({ dest: '../../public/users'})
+const path = require('path');
+
+const database = require('./db');
+
+const Image = require('./Images')
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/files', express.static(path.resolve(__dirname, "public", "users"))); //mover para client
+
+app.get("/list-image", async (req, res) => {
+    await Image.findAll()
+    .then((images) => {
+        return res.json({
+            erro: false,
+            images
+        })
+    }).catch(() => {
+        return res.status(400).json({
+            erro: true,
+            mensagem: "Erro: nenhuma imagem encontrada."
+        })
+    })
+})
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    res.header("Access-Control-Allow-Headers", "X-PINGOTHER, Content-Type, Authorization");
+    app.use(cors());
+    next();
+})
 
 //cria a conexão com o banco de dados
 const db = mysql.createConnection({ 
@@ -12,6 +45,35 @@ const db = mysql.createConnection({
     host: "localhost",
     password: "",
     database: "fybs",
+});
+
+app.post("/upload-image", uploadUser.single('image'), async (req, res) => {
+    if (req.file){
+        console.log(Image)
+        await Image.create({image: req.file.filename})
+        .then (() => {
+            return res.json({
+                erro: false,
+                mensagem: "Upload realizado com sucesso!"
+            })
+        }).catch(() => {
+                return res.status(400).json({
+                    erro: true,
+                    mensagem: "Erro: Upload não realizado."
+                });
+            });
+
+        return res.json({
+            erro: false,
+            mensagem: "Upload realizado com sucesso!"
+        })
+    }
+
+    return res.status(400).json({
+        erro: true,
+        mensagem: "Erro: Upload não realizado."
+    })
+
 });
 
 //salva os dados de uma nova conta no banco
@@ -63,9 +125,10 @@ app.post("/createpost", (req, res) => {
     const texto = req.body.texto;
     const imagem = req.body.imagem;
     const id = req.body.id;
+    const origem = req.body.origem;
     
-    db.query("INSERT INTO posts VALUES (NULL, ?, ?, ?, ?, ?, 0, 0, 0)",
-        [user, id, id, texto, imagem],
+    db.query("INSERT INTO posts VALUES (NULL, ?, ?, ?, ?, ?, ?, 0, 0, 0)",
+        [user, id, origem, id, texto, imagem],
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -106,6 +169,20 @@ app.get("/posts", (req, res) => {
         //console.log(result);
         }
     });
+});
+
+app.delete("/deletepost/:id", (req, res) => {
+    const id = req.params.id;
+    db.query("DELETE FROM posts WHERE id = ?", 
+    [id],
+    (err, result) => { 
+        if (err) {
+        console.log(err);
+        } else {
+        res.send(result);
+        }
+    });
+
 });
 
 //seleciona os dados de grupos
@@ -206,6 +283,48 @@ app.post("/addlike", (req, res) => {
 app.delete("/dislike/:id", (req, res) => {
     const id = req.params.id;
     db.query("DELETE FROM likes WHERE id = ?", 
+    [id],
+    (err, result) => { 
+        if (err) {
+        console.log(err);
+        } else {
+        res.send(result);
+        }
+    });
+
+});
+
+//seleciona todos os dados de compartilhamentos
+app.get("/shares", (req, res) => {
+    db.query("SELECT * FROM shares", (err, result) => { 
+        if (err) {
+        console.log(err);
+        } else {
+        res.send(result);
+        //console.log(result);
+        }
+    });
+});
+
+app.post("/addshares", (req, res) => {
+    const user = req.body.user;
+    const poster = req.body.poster;
+    const post = req.body.post;
+    db.query("INSERT INTO shares VALUES (NULL, ?, ?, ?)", 
+    [user, poster, post],
+    (err, result) => { 
+        if (err) {
+        console.log(err);
+        } else {
+        res.send("Values inserted");
+        }
+    });
+
+});
+
+app.delete("/unshare/:id", (req, res) => {
+    const id = req.params.id;
+    db.query("DELETE FROM shares WHERE id = ?", 
     [id],
     (err, result) => { 
         if (err) {

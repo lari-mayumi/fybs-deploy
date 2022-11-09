@@ -7,12 +7,22 @@ import fotoRadar from "../img/jinx.jpeg"
 import iconeCurtir from "../img/iconeHeart.png"
 import iconeCurtido from "../img/iconeHeartFull.png"
 import Axios from "axios";
+import DescubraJogo from "./DescubraJogo";
+import Radar from "./Radar";
+import PerfilL from "./perfilLateral";
 
 function Busca(){
     const { key } = useParams();
     const [postList, setPostList] = useState([]);
+    const [groupList, setGroupList] = useState([]);
     let posts = [];
     let b = key.replaceAll("+", " ")
+    let id = parseInt(localStorage.getItem("id"));
+    let p = parseInt(localStorage.getItem("perfil"));
+    let postsRadar = [];
+    let jogos = [];
+    let follows = [];
+
   //console.log(typeof b)
     const buscar = () => {
       Axios.get("http://localhost:3001/posts").then((response) => { //seleciona todos os dados de post
@@ -28,7 +38,26 @@ function Busca(){
           }
           i = i + 1;  
       }
-      //console.log(posts)
+
+      Axios.get("http://localhost:3001/grupos").then((response) => { //pega os dados de grupo
+        setGroupList(response.data);
+      });
+
+      i = 0;
+      while (i < 4 && groupList[i] !== undefined) {
+        jogos.push(groupList[i]);
+        i = i + 1;
+      }
+  
+      postList.sort((a, b) => {
+        return b.likes - a.likes;
+      });
+      i = 0;
+      while (i < 2 && postList[i] !== undefined) {
+        postsRadar.push(postList[i]);
+  
+        i = i + 1;
+      }
     }
 
     buscar();
@@ -38,6 +67,7 @@ function Busca(){
     return (
         <>
             <Navbar />
+            {p === 1 && ( <PerfilL /> )}
             <div className="feedPrincipal"> 
             <div className="postsFeed">
           {posts.map((val, key) => {
@@ -51,73 +81,26 @@ function Busca(){
           {/** Caixa Descubra*/}
           <div className="descubra">
             <h1>Descubra</h1>
-            <div className="linha"> {/**Da para usar looping para repetir 4 vezes? */}
-              <div className="jogo"><p>Jogo 01</p></div>
-              <div className="btnSeguir"><p>Seguir</p></div>
+            <div className="linhaJogos">
+              {jogos.map((val, key) => {
+                return (
+                  < DescubraJogo nome={val.nomeGrupo} idGrupo={val.idGrupo} id={id} />
+                );
+              })}
             </div>
-            <div className="linha">
-              <div className="jogo"><p>Jogo 02</p></div>
-              <div className="btnSeguir"><p>Seguir</p></div>
-            </div>
-            <div className="linha">
-              <div className="jogo"><p>Jogo 03</p></div>
-              <div className="btnSeguir"><p>Seguir</p></div>
-            </div>
-            <div className="linha">
-              <div className="jogo"><p>Jogo 04</p></div>
-              <div className="btnSeguir"><p>Seguir</p></div>
-            </div>
-            <div className="linha">
+            <div className="linhaExplorar">
               <div className="btnExplorar"><p>Explorar mais na fybs...</p></div>
             </div>
           </div>
           {/** Caixa Radar 01*/}
           <h1>Radar</h1>
-          <div className="radar">
-            {/** user e botao seguir*/}
-            <div className="userRadar">
-              <div className="userPostR"><p>@teste</p></div>
-              <div className="btnSeguir"><p>Seguir</p></div>
-            </div>
-            {/** foto do radar*/}
-            <div className="postRadar">
-              <div className="jogo">
-                <img src={fotoRadar} alt="..." width="100%" />
-              </div>
-            </div>
-            {/** likes do post*/}
-            <div className="acoesRadar">
-              <div className="btnCurtir">
-                <img src={iconeCurtir} alt="..." width="15px" />
-              </div>
-              <div className="txtLikes">
-                <p>100 likes</p>
-              </div>
-            </div>
-          </div>
-          {/** Caixa Radar 02 */}
-          <div className="radar">
-            {/** user e botao seguir*/}
-            <div className="userRadar">
-              <div className="userPostR"><p>@teste</p></div>
-              <div className="btnSeguir"><p>Seguir</p></div>
-            </div>
-            {/** foto do radar*/}
-            <div className="postRadar">
-              <div className="jogo">
-                <img src={fotoRadar} alt="..." width="100%" />
-              </div>
-            </div>
-            {/** likes do post*/}
-            <div className="acoesRadar">
-              <div className="btnCurtir">
-                <img src={iconeCurtir} alt="..." width="15px" onclick="curtir" className="imgCurtir" />
-              </div>
-              <div className="txtLikes">
-                <p>100 likes</p>
-              </div>
-            </div>
-          </div>
+          {postsRadar.map((val, key) => {
+            //console.log(val.originalPosterID)
+            return (
+              < Radar user={val.userName} id={val.id} idPoster={val.originalPosterID} likes={val.likes} text={val.text} image={val.image} />
+            );
+          })}
+
         </div>
       </div>
 

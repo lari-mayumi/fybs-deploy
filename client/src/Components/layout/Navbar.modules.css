@@ -1,122 +1,289 @@
-.navbar {
+/* Caixa principal */
+.navPrincipal {
+  background-color: #272727;
   display: flex;
-  justify-content: space-between;
-  background-color: rgb(39, 39, 39);
-  padding: 1em;
-  margin: 0;
   flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: 1px 1px 5px 0px black;
+  -moz-box-shadow: 1px 1px 5px 0px black;
+  box-shadow: 1px 1px 5px 0px black;
+}
+
+nav {
+  margin-bottom:6%;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Logo Fybs*/
+.logo {
+  margin-left: 10%;
+}
+
+.logo button {
+  background-color: #272727;
+  border: none;
+}
+
+.logo img {
+  background-color: #272727;
+}
+
+/* Logo perfil */
+.logoPerfil {
+  width: 40px;
+  height: 40px;
+  margin-right: 5%;
+}
+
+.logoPerfil button {
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  border: none;
+  background-color: #272727;
+}
+
+.logoPerfil img {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+/* Campo de bsuca */
+.txtBusca {
+  border: none;
+  font-size: 12px;
+  background-color: #5a5a5a;
+  color: white;
+  width: 500px;
+  height: 30px;
+  margin-right: 10px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+  display: flex;
   justify-content: flex-start;
 }
 
-.list{
-  display: flex;
-  list-style: none;
-  align-items: center;
-  font-size: 10;
-}
-
-.item {
-  margin-right: 1em;
-}
-
-.item a {
-  color: #FFF;
-  text-decoration: none;
-}
-
-.item a:hover {
-  color: #9068ff;
-}
-
-
-/*Geral*/
-.headerMenu {
-  margin:0px;
-  padding:0px;
-  background-color:#272727;
-  display:flex;
-  justify-content:flex-start;
-}
-
-/*Logo Fybs*/
-.logoMenu {
-  margin-left:50px;
-}
-
-/*Foto do Perfil*/
-.perfilMenu {
-  margin-top:2px;
-  margin-left:35px;
-  margin-right:100px;
-  width:30px;
-  height:30px;
-  cursor: pointer;
-}
-
-/* Menu */
-
-
-/*Campo de busca*/
-.searchMenu {
-  display:flex;
-  justify-content:flex-start;
-}
-
-.txtBusca { 
-  border: none;
-  font-size:12px;
-  background-color:#5a5a5a;
-  color:white;
-  width:700px;
-  height:30px;
-  margin-left:10px;
-  margin-top:5px;
-  padding:5px 10px 5px 10px;
-  border-radius:20px;
-  display:flex;
-  justify-content:flex-start;
-}
-
 .txtBusca:focus {
-  border:none;
+  border: none;
 }
 
+.busca {
+  display: flex;
+}
+
+/* Botão de busca */
 .btnBusca {
-  width:20px;
-  height:20px;
-  margin-top:10px;
-  margin-left:15px;
+  border: none;
+  background-color: #272727;
+  width: auto;
+  height: auto;
 }
 
 .btnBusca:hover {
   cursor: pointer;
 }
 
+.imgBusca {
+  width: 20px;
+  height: 20px;
+}
+
+/*Geral*/
+.headerMenu {
+  margin: 0px;
+  padding: 0px;
+  background-color: #272727;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/*Logo Fybs*/
+.logoMenu {
+  margin-left: 50px;
+}
+
+/*Foto do Perfil*/
+.perfilMenu {
+  margin-top: 2px;
+  margin-left: 35px;
+  margin-right: 100px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
 /*Botão de Sair*/
+.deslogar {
+  display: block;
+  margin-left: auto;
+  margin-right: 10%;
+}
+
 .btnSair {
-  width:20px;
-  height:20px;
-  margin-top:10px;
-  margin-left:15px;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-left: 15px;
 }
 
 .btnSair:hover {
   cursor: pointer;
 }
 
-.button {
-  background-color:#272727;
-  border: 0;
+.popupSair {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.498);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display:none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: contain;
-  background-color: #E0E0E0;
-  margin-right: 25px;
+/* Pop-up confirmação sair */
+.caixaSair {
+  position: fixed;
+  width: 30%;
+  height: auto;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(106, 106, 106, 0.324);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(106, 106, 106, 0.324);
+  box-shadow: 1px 1px 5px 0px rgba(106, 106, 106, 0.324);
+  border-radius: 10px;
+}
+
+.tituloSair {
+  color: blue;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 0 5px 0;
+  height: auto;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(106, 106, 106, 0.324);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(106, 106, 106, 0.324);
+  box-shadow: 1px 1px 5px 0px rgba(106, 106, 106, 0.324);
+  border-radius: 10px 10px 0 0;
+}
+
+.tituloSair p {
+  margin: 0;
+  padding: 0;
+}
+
+.corpoSair {
+  padding-top: 8%;
+  text-align: center;
+  color: #5a5a5a;
+  font-size: 12px;
+}
+
+.caixaSairConfirma {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5%;
+}
+
+.btnSairConfirma {
+  background-color: #3700B3;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: white;
+  width: 25%;
+  font-size: 12px;
+  cursor: pointer;
+  padding-top: 5px;
+  height: 30px;
+  border: none;
   -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.btnVoltarConfirma {
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: #3700B3;
+  width: 25%;
+  font-size: 12px;
+  cursor: pointer;
+  padding-top: 5px;
+  height: 30px;
+  border: none;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.btnSairConfirma:hover,
+.btnVoltarConfirma:hover {
+  background-color: #019592;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: white;
+  width: 25%;
+  font-size: 12px;
+  cursor: pointer;
+  padding-top: 5px;
+  height: 30px;
+  border: none;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+/* Menu secundario */
+.navSecundaria {
+  position:fixed;
+  margin:0;
+  padding:0;
+  background-color: #3700B3;
+  width:100%;
+  height:auto;
+  display:inline;
+  top:50px;
+  font-size:12px;
+  
+}
+
+.navSecundaria ul {
+  text-align:center;
+}
+
+.menuS {
+    margin: 0;
+    padding:0;
+}
+ 
+li {
+    list-style: none; 
+    display: inline;
+}
+
+li a {
+  padding: 5px 10px; 
+  margin:0;
+  text-decoration: none;
+  color:#FFF;
+  /* cantos arredondados */
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+}
+li a:hover {
+  font-weight:bold;
+  color:white;
 }
