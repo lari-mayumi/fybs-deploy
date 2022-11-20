@@ -13,6 +13,17 @@ import Perfil from './Components/Perfil';
 import PerfilAlterar from './Components/PerfilAlterar';
 import Rotas from './Components/Rotas'
 
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = initializeApp({
+  apiKey: "AIzaSyCNEcLbT4i_zCEXfOtkBhV9b0x7lrDBAYw",
+  authDomain: "fybs-teste-firebase.firebaseapp.com",
+  projectId: "fybs-teste-firebase",
+  storageBucket: "fybs-teste-firebase.appspot.com",
+  messagingSenderId: "212862553160",
+  appId: "1:212862553160:web:af7ffab852a31d7263dc7d"
+});
+
 function App() {
   localStorage.setItem("erro", 0);
   
