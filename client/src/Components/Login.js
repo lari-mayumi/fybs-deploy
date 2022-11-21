@@ -1,5 +1,5 @@
 //import '../App.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./Login.modules.css";
 import Globais from "./Globais";
@@ -7,6 +7,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from "../img/logo - Copia.png"
 import resetSenha from "./form/ResetPassword";
 import Modal from "./ModalErroLogin";
+import {initializeApp} from "firebase/app";
+import {getFirestore, getDocs, collection} from "firebase/firestore";
+
+const firebaseConfig = initializeApp({
+  apiKey: "AIzaSyCNEcLbT4i_zCEXfOtkBhV9b0x7lrDBAYw",
+  authDomain: "fybs-teste-firebase.firebaseapp.com",
+  projectId: "fybs-teste-firebase",
+  storageBucket: "fybs-teste-firebase.appspot.com",
+  messagingSenderId: "212862553160",
+  appId: "1:212862553160:web:af7ffab852a31d7263dc7d"
+});
 
 function Login(){
   const [userList, setUserList] = useState([]);
@@ -20,38 +31,45 @@ function Login(){
   localStorage.setItem("login", 0);
   let erro = parseInt(localStorage.getItem("erro"));
 
+  const db = getFirestore(firebaseConfig);
+  const userCollectionRef = collection(db, "usuarios");
 
   Axios.get("http://localhost:3001/users").then((response) => {
     setUserList(response.data);
   });
 
-  const getUsers = async e => {
-    e.preventDefault();
+  useEffect(() => {
 
-    //clickLogin = 1;
-    //console.log(userList)
-    let i=0;
-    while (i < userList.length) {
-      console.log(userList[i].nome, userList[i].id)
-      if (userList[i].nome === name && userList[i].senha === senha) { 
-        console.log("Achei:", name, senha); 
-        localStorage.setItem("id", userList[i].id);
-        localStorage.setItem("login", 1);
+    const getUsers = async e => {
+      e.preventDefault();
+      const data = await getDocs(userCollectionRef);
+  
+      //clickLogin = 1;
+      //console.log(userList)
+      let i=0;
+      while (i < userList.length) {
+        console.log(userList[i].nome, userList[i].id)
+        if (userList[i].nome === name && userList[i].senha === senha) { 
+          console.log("Achei:", name, senha); 
+          localStorage.setItem("id", userList[i].id);
+          localStorage.setItem("login", 1);
+        }
+        i = i + 1;  
       }
-      i = i + 1;  
+      
+      if (parseInt(localStorage.getItem("login")) === 1) { //ir para o feed
+        localStorage.setItem("userName", name);
+        navigate("/feed");
+        console.log("entrando")
+        //console.log(parseInt(localStorage.getItem("id")))
+      }
+      else {
+        localStorage.setItem("erro", 1);
+        console.log("Usuário ou senha inválidos."); //fazer popup para mostrar isso
+      }
     }
-    
-    if (parseInt(localStorage.getItem("login")) === 1) { //ir para o feed
-      localStorage.setItem("userName", name);
-      navigate("/feed");
-      console.log("entrando")
-      //console.log(parseInt(localStorage.getItem("id")))
-    }
-    else {
-      localStorage.setItem("erro", 1);
-      console.log("Usuário ou senha inválidos."); //fazer popup para mostrar isso
-    }
-  }
+    getUsers();
+  },[])  
 
   const recuperarSenha = () => {
     navigate("/resetSenha")
@@ -99,7 +117,8 @@ function Login(){
                 <div className="container-login100-form-btn">
                   <div className="wrap-login100-form-btn">
                     <div className="login100-form-bgbtn"></div>
-                    <button className="login100-form-btn" onClick={getUsers}>
+                    {/* <button className="login100-form-btn" onClick={getUsers}> */}
+                    <button className="login100-form-btn" onClick={useEffect}>
                       Entrar
                     </button>
                   </div>
